@@ -1,0 +1,4 @@
+sudo: true
+language: cpp
+dist: trusty
+script: ./scripts/travis_build
