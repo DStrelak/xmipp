@@ -6,7 +6,7 @@ addons:
     sources: ubuntu-toolchain-r-test
     packages: g++-5
 before_install:
- - sudo apt-get install -y libfftw3-dev libopenmpi-dev
+ - sudo apt-get install -y libfftw3-dev libopenmpi-dev libhdf5-dev
 script: 
  - python ./scripts/travis_before_script
  - python ./xmipp
