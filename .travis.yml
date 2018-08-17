@@ -1,8 +1,8 @@
 sudo: true
 language: cpp
 dist: trusty
-apt:
+addons:
+  apt:
     sources: ubuntu-toolchain-r-test
-        packages: g++-5
-
+    packages: g++-5
 script: ./scripts/travis_build
