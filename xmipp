@@ -8,7 +8,11 @@ import sys
 import unittest
 import subprocess
 
-#testing
+def testingIssues():
+    return
+    test = "test"
+    test = test.split('e')[0]
+    return test
 
 def whereis(program):
     programPath=distutils.spawn.find_executable(program)
