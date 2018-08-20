@@ -8,6 +8,7 @@ import sys
 import unittest
 import subprocess
 
+#testing
 
 def whereis(program):
     programPath=distutils.spawn.find_executable(program)
