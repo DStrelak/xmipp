@@ -617,12 +617,24 @@ def install(dirname):
     runJob("cp src/xmippViz/bindings/python/xmippViz.py "+dirname+"/bindings/python")
     runJob("cp -Lr src/xmippViz/resources "+dirname+"/resources")
 
+    print("about to open files\n")
+
     fhBash = open(dirname+"/xmipp.bashrc","w")
     fhFish = open(dirname+"/xmipp.fish","w")
     fhBash.write("# This script is valid for bash and zsh\n\n")
     fhFish.write("# This script is valid for fish\n\n")
 
+
+    print("about to get realPath files\n")
+
+
     XMIPP_HOME = os.path.realpath(dirname)
+
+
+    print("after realpath\n")
+
+
+
     fhBash.write("export XMIPP_HOME=%s\n"%XMIPP_HOME)
     fhFish.write("set -x XMIPP_HOME=%s\n"%XMIPP_HOME)
 
@@ -630,7 +642,16 @@ def install(dirname):
     fhBash.write("export XMIPP_SRC=%s\n"%XMIPP_SRC)
     fhFish.write("set -x XMIPP_SRC=%s\n"%XMIPP_SRC)
 
+    print("about to get scipion home\n")
+
+
     SCIPION_HOME = getScipionHome()
+
+
+    print("after getting scipion home\n")
+
+
+
     if SCIPION_HOME:
         fhBash.write("export PATH=$SCIPION_HOME/software/bin:$PATH\n")
         fhBash.write("export LD_LIBRARY_PATH=$SCIPION_HOME/software/lib:$LD_LIBRARY_PATH\n")
@@ -658,8 +679,18 @@ def install(dirname):
     fhFish.write("alias xih 'xmipp_image_header'\n")
     fhFish.write("alias xmu 'xmipp_metadata_utilities'\n")
 
+
+    print("about to close files\n")
+
+
+
     fhBash.close()
     fhFish.close()
+
+
+    print("done\n")
+
+
 
 def writeDevelPaths(dirname):
     fhBash = open(dirname+"/xmipp.bashrc","w")
