@@ -2,9 +2,10 @@
 import os, shutil
 folder = './'
 xmipp_script = 'xmipp'
+sonar_script = 'sonar-project.properties'
 # get folder relative to home dir and strip os.path separators
 script_dir = os.path.dirname(os.path.realpath(__file__)).split(os.getcwd())[1][1:] 
-white_list = [xmipp_script, script_dir]
+white_list = [xmipp_script, script_dir, sonar_script]
 for item in os.listdir(folder):
     item_path = os.path.join(folder, item)
     try:
