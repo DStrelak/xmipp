@@ -710,8 +710,7 @@ def usage():
           "                            <version> usually X.YY.MM\n"
           )
 
-if __name__ == '__main__':
-
+def main():
     # I comment this line to avoid problems if this script is run in XmippBundle/src/xmipp  or directly from XmippBundle/.
     # os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
@@ -790,3 +789,8 @@ if __name__ == '__main__':
     else:
         print(" -> option not found <- \n")
         usage()
+
+    return 0
+
+if __name__ == '__main__':
+    main()
