@@ -662,7 +662,7 @@ def install(dirname):
     fhFish.close()
 
     print("install done\n")
-    return 0
+    return True
 
 
 def writeDevelPaths(dirname):
@@ -721,7 +721,7 @@ def main():
     n = len(sys.argv)
     if n == 2 and (sys.argv[1]=="help" or sys.argv[1]=="-help" or sys.argv[1]=="--help" or sys.argv[1]=="-h"):
         usage()
-        sys.exit(0)
+        return 0
     if n>=2:
         mode = sys.argv[1]
     else:
@@ -761,6 +761,7 @@ def main():
            ok=compile(Nproc)
         if ok:
            ok=install("build")
+           print(ok)
         if ok:
            print("\n"
                  "  *********************************************\n"
@@ -768,9 +769,9 @@ def main():
                  "  *  Xmipp have been successfully installed!  *\n"
                  "  *                                           *\n"
                  "  *********************************************\n\n")
-           sys.exit(0)
+           return 0
         else:
-           sys.exit(1)
+           return 1
     elif mode=="create_devel_paths":
         if n==3:
             dir=sys.argv[2]
@@ -797,4 +798,4 @@ def main():
     return 0
 
 if __name__ == '__main__':
-    main()
+    sys.exit(main())
