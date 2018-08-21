@@ -1,6 +1,13 @@
 sudo: true
 language: cpp
 dist: trusty
+
+env:
+ - BUILD_FOLDER=./src/xmipp
+ - BUILD_FOLDER=./src/scipion-em-xmipp
+ - BUILD_FOLDER=./src/xmippCore
+ - BUILD_FOLDER=./src/xmippViz
+
 addons:
   apt:
     sources: ubuntu-toolchain-r-test
@@ -15,5 +22,9 @@ before_install:
  - sudo apt-get install -y libfftw3-dev libopenmpi-dev openmpi-bin libhdf5-dev python-numpy
 script: 
  - python ./scripts/travis_before_script
- - build-wrapper-linux-x86-64 --out-dir bw-outputs ./xmipp
+ - python ./xmipp get_devel_sources
+ - python ./xmipp config
+ - python ./xmipp check_config
+ - pushd $BUILD_FOLDER && build-wrapper-linux-x86-64 --out-dir bw-outputs scons -j 2
+ - popd
  - sonar-scanner
