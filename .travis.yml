@@ -2,11 +2,6 @@ sudo: true
 language: cpp
 dist: trusty
 
-env:
- - BUILD_FOLDER=./src/xmipp
- - BUILD_FOLDER=./src/xmippCore
- - BUILD_FOLDER=./src/xmippViz
-
 addons:
   apt:
     sources: ubuntu-toolchain-r-test
@@ -24,10 +19,10 @@ script:
  - python ./xmipp get_devel_sources
  - python ./xmipp config
  - python ./xmipp check_config
- - mkdir -p ./src/xmippCore/install && cp xmipp.conf ./src/xmippCore/install/ && pushd ./src/xmippCore && build-wrapper-linux-x86-64 --out-dir bw-outputs scons
+ - mkdir -p ./src/xmippCore/install && cp xmipp.conf ./src/xmippCore/install/ && pushd ./src/xmippCore && build-wrapper-linux-x86-64 --out-dir ../../bw-outputs scons
  - popd
- - mkdir -p ./src/xmipp/install && cp xmipp.conf ./src/xmipp/install/ && pushd ./src/xmipp && build-wrapper-linux-x86-64 --out-dir bw-outputs scons
+ - mkdir -p ./src/xmipp/install && cp xmipp.conf ./src/xmipp/install/ && pushd ./src/xmipp && build-wrapper-linux-x86-64 --out-dir ../../bw-outputs scons
  - popd
- - mkdir -p ./src/xmippViz/install && cp xmipp.conf ./src/xmippViz/install/ && pushd ./src/xmippViz && build-wrapper-linux-x86-64 --out-dir bw-outputs scons
+ - mkdir -p ./src/xmippViz/install && cp xmipp.conf ./src/xmippViz/install/ && pushd ./src/xmippViz && build-wrapper-linux-x86-64 --out-dir ../../bw-outputs scons
  - popd
  - sonar-scanner
