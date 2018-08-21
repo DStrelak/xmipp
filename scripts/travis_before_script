@@ -9,6 +9,8 @@ script_dir = os.path.dirname(os.path.realpath(__file__)).split(os.getcwd())[1][1
 copy_list = [xmipp_script, script_dir, sonar_script]
 dest_folder = os.path.join(os.getcwd(), 'src', 'xmipp')
 
+os.makedirs(dest_folder)
+
 for item in os.listdir(folder):
     item_path = os.path.join(folder, item)
     try:
