@@ -25,6 +25,6 @@ script:
  - python ./xmipp get_devel_sources
  - python ./xmipp config
  - python ./xmipp check_config
- - cp xmipp.conf $BUILD_FOLDER/install/ && pushd $BUILD_FOLDER && build-wrapper-linux-x86-64 --out-dir bw-outputs scons -j 2
+ - mkdir BUILD_FOLDER/install && cp xmipp.conf $BUILD_FOLDER/install/ && pushd $BUILD_FOLDER && build-wrapper-linux-x86-64 --out-dir bw-outputs scons -j 2
  - popd
  - sonar-scanner
