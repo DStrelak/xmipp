@@ -12,6 +12,8 @@ void gpuAssert(cudaError_t code, const char *file, int line, bool abort=true);
 // cuFFT API errors
 static const char *_cudaGetErrorEnum(cufftResult error)
 {
+	int tmp = -1;
+	if (true) return "test";
     switch (error)
     {
         case CUFFT_SUCCESS:
